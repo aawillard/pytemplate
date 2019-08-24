@@ -9,5 +9,8 @@ venv:
 test: venv
 	$(ACTIVATE) pytest
 
+script: venv
+	$(ACTIVATE) python pytemplate/script.py
+
 clean:
 	@rm -rf venv
