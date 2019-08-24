@@ -1,5 +1,13 @@
-venv: python3 -m venv venv
-	pip install -r requirements.txt
+ACTIVATE=. venv/bin/activate &&
+
+default: test
+
+venv:
+	python3 -m venv venv
+	$(ACTIVATE) pip install -r requirements.txt
 
 test: venv
-	. venv/bin/activate && pytest
+	$(ACTIVATE) pytest
+
+clean:
+	@rm -rf venv
